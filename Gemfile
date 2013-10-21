@@ -27,8 +27,31 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+# Background Jobs
+gem "resque", :require => "resque/server"
+gem 'resque-scheduler', :require => 'resque_scheduler'
+gem 'redis'
+
+# Environment Variable Obfuscation
+gem 'figaro'
+
+# Others
+gem 'psych'
+
+group :development do
+  gem 'guard'
+  gem 'guard-rspec'
+end
+
 group :test do
-  gem 'pry'
+  gem 'capybara-mechanize'
+  gem 'factory_girl_rails'
+  gem 'fakeweb'
+  gem 'pry-rails'
+  gem 'pry-debugger'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'vcr'
 end
 
 group :doc do
