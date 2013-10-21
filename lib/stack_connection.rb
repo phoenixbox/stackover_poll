@@ -1,0 +1,2 @@
+class StackConnection
+end
