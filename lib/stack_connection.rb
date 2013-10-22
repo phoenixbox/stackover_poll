@@ -7,5 +7,6 @@ class StackConnection
     @key = options[:stack_key]
 
     raise ArgumentError, 'Missing stack client id' unless client_id
+    raise ArgumentError, 'Missing stack client secret' unless client_secret
   end
 end

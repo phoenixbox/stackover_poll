@@ -14,12 +14,19 @@ describe StackConnection do
       end
     end
     context 'with invalid options' do
-      it 'without a valid client id it raises an error' do
+      it 'raises an error without a valid client_id' do
         invalid_options = valid_options
         invalid_options.delete :stack_client_id
         expect {
           StackConnection.new(invalid_options)
         }.to raise_error(ArgumentError, 'Missing stack client id')
+      end
+      it 'raises an error without a valid client_secret' do
+        invalid_options = valid_options
+        invalid_options.delete :stack_client_secret
+        expect {
+          StackConnection.new(invalid_options)
+        }.to raise_error(ArgumentError, 'Missing stack client secret')
       end
     end
   end
