@@ -13,5 +13,14 @@ describe StackConnection do
         expect(communicator.key).to eq ENV["STACK_KEY"]
       end
     end
+    context 'with invalid options' do
+      it 'without a valid client id it raises an error' do
+        invalid_options = valid_options
+        invalid_options.delete :stack_client_id
+        expect {
+          StackConnection.new(invalid_options)
+        }.to raise_error(ArgumentError, 'Missing stack client id')
+      end
+    end
   end
 end
